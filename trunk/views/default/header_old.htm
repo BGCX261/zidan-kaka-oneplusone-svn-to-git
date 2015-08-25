@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$GLOBALS[charset]}" />
+<meta name="description" content="{$GLOBALS[setting][seo_description]}" />
+<meta content="{$GLOBALS[setting][seo_keyword]}" name="keywords"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>{eval echo $GLOBALS['session']->get('cityid')?$GLOBALS['city'][$GLOBALS['session']->get('cityid')]['cityname']:'';} 今日最新团购 {$GLOBALS[title]} {$GLOBALS[seo_title]} -Power By {VERSION}</title>
+<script language="javascript" src="{SITE_ROOT}/views/js/jquery.js"></script>
+<script language="javascript" src="{SITE_ROOT}/views/{TPLDIR}/js/index.js"></script>
+<script language="javascript" src="{SITE_ROOT}/views/js/common.js"></script>
+<script language="javascript" src="{SITE_ROOT}/views/{TPLDIR}/js/ajax.js"></script>
+<link rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/index.css" type="text/css" />
+<link href="{SITE_ROOT}/views/{TPLDIR}/css/ceng.css" rel="stylesheet"  type="text/css" />
+</head>
+<body>
+<div class="top">
+  <div class="top_nav"> <span class="welcome">您好，欢迎来到 {eval echo $GLOBALS['session']->get('cityid')?$GLOBALS['city'][$GLOBALS['session']->get('cityid')]['cityname']:'';}今日最新团购  <A HREF="{SITE_ROOT}">{$GLOBALS[title]} {$GLOBALS[seo_title]}</A><a style="color:#ff6600; margin-left: 5px;" href="#" onclick="AddFavorite(window.location,document.title)">加入收藏</a>  
+<a style="color:#ff0000; margin-left: 5px;" href="#" onclick="setHomepage(this,window.location)">设为首页</a></span> 
+  <!--{eval if($GLOBALS['session']->get('uid')){}-->
+<span class="right"> <ul><li>{eval echo $GLOBALS['session']->get('username');}</li><li uname="{eval echo $GLOBALS['session']->get('username');}" class="ucid" uid="{eval echo $GLOBALS['session']->get('uid');}"></li><li><a target="_blank" href="{eval echo url('user','index');}">用户中心</a>&nbsp;|&nbsp;<a href="{eval echo url('user','logout');}">安全退出</a></li></ul></span>
+<!--{eval } else{}-->
+<span class="right"><span class="reg"><a target="_blank" href="{eval echo url('user','register');}">注册</a></span><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/s_tu_1.gif"><span class="login"><a target="_blank" href="{eval echo url('user','login');}">登陆</a></span></span>	
+<!--{eval }}-->
+				</div>
+  <div class="top_box"><h1><a href="{SITE_ROOT}" title="{$GLOBALS[title]}{$GLOBALS[seo_title]}"><img src="{SITE_ROOT}/{$GLOBALS[setting][site_logo]}" alt="{$GLOBALS[title]}{$GLOBALS[seo_title]}"/></a></h1><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/s_tu_2.gif" class="s_tu_2"/>
+    <div class="city">
+      <div> <span class="city_name" cid={eval echo intval($GLOBALS['session']->get('cityid'));}><span style="font-size:30px;">{eval echo $GLOBALS['session']->get('cityid')?$GLOBALS['city'][$GLOBALS['session']->get('cityid')][cityname]:'全国';}</span></span> </div>
+      <span class="qiehuan_city">切换城市</span>
+    </div>
+    <div class="top_big_img"><script language='javascript' src='{SITE_ROOT}/data/cache/headtop.js'></script></div>
+  </div>
+  <div id="ceng1">
+    <ul id="ul">
+      <!--{loop $GLOBALS[city] $k $v}-->
+	  <!--{if $v[isshow]}-->
+	  <li><a class="class1" href="{eval echo url('index','index',array('cityid'=>$k));}" title="" name="{$k}">{$v[cityname]}</a></li>
+	  <!--{/if}-->
+	  <!--{/loop}-->
+    </ul>
+  </div>
+</div>

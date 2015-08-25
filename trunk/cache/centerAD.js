@@ -1,0 +1,1 @@
+document.write('<a href=\"#\"><img border=\"0\" src=\"http://www.kaka101.com/data/upload/tempimg/4bb88bd39c5f5b580f4e.jpg\" style=\"width:950px;height:63px;\" alt=\"È«ÍøÂú299ÃâÔË·Ñ\"/></a>');

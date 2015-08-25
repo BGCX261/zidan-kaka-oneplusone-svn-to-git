@@ -1,0 +1,3 @@
+<iframe src=""  style="display:none;" name="mimg"></iframe><form enctype="multipart/form-data" action="index.php?con=admin&act=imgmodify" method="post" target="mimg"><INPUT TYPE="hidden" NAME="commit" value="1"><INPUT TYPE="hidden" NAME="oldimg" value="<?php echo $_GET['oldimg'];?>"><INPUT TYPE="hidden" NAME="doid" value="<?php echo $_GET['obj'];?>">
+<INPUT TYPE="file" NAME="tempimg"><INPUT TYPE="submit" value="ÉÏ´«" class="normal_button"><INPUT TYPE="button" value="¹Ø±Õ" onclick="$('#img_area').hide();" class="normal_button">
+</FORM>

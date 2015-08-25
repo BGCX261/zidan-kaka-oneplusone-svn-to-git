@@ -1,0 +1,24 @@
+{template header}
+<meta http-equiv="Pragma" content="no-cache">
+<Meta http-equiv="refresh" content="{$time};url='{$url}' ">
+<div class="main">
+<link href="{SITE_ROOT}/views/{TPLDIR}/css/site.css" rel="stylesheet"  type="text/css" />
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+   <div class="main_bg_top"></div> 
+  <div class="main_box" style="background:url({SITE_ROOT}/views/{TPLDIR}/imgs/message_logo.gif) no-repeat 10px top;">
+ 	<div style="height:40px;clear:both;border-bottom:1px solid #ccc;width:940px;margin:auto;"></div>
+	 <div class="sitelist">
+       <div class="back-to-check">页面将在<strong class="total-money">{$time}</strong>秒后转向>> 
+								<!--{if $userurl}--><A HREF="{$url}">
+								{$message}
+								</A><!--{else}-->{$message}<!--{/if}--></div>
+    </div>
+    <div style="clear:both;">
+    
+	 </div>
+	 <div class="go_top"><a href="#"><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/go_top.gif" /></a></div>
+    <div style="clear:both;overflow:hidden;"></div>
+  </div>
+  <div class="main_bottom"></div>
+</div>
+{template footer}

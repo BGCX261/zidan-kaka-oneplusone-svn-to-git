@@ -1,0 +1,68 @@
+{template header}
+<meta http-equiv="Pragma" content="no-cache">
+<div class="main">
+<link href="{SITE_ROOT}/views/{TPLDIR}/css/site.css" rel="stylesheet"  type="text/css" />
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+   <div class="main_bg_top"></div> 
+  <div class="main_box" style="background:url({SITE_ROOT}/views/{TPLDIR}/imgs/message_logo.gif) no-repeat 10px top;">
+ 	<div style="height:40px;clear:both;border-bottom:1px solid #ccc;width:940px;margin:auto;"></div>
+	 <div class="sitelist">
+
+<div class="usermenu">
+<div><h2>网站征集</h2></div>
+<ul>
+<li><A HREF="{eval echo url('index','siteadd');}">网站提交</A></li>
+<li><A HREF="{eval echo url('index','apiinfo');}">API测试</A></li>
+<li><A HREF="{eval echo url('index','guestbook');}">意见反馈</A></li>
+</ul>
+
+</div>
+<div class="infoarea">
+<table width="700" cellspacing="0" cellpadding="0" border="0" style="margin-left:40px;">
+  <tbody>
+  <tr>
+    <td height="40"><strong>&nbsp;API测试</strong></td>
+  </tr>
+</tbody></table>
+<table width="700" cellspacing="1" cellpadding="0" border="0" class="t001" style="margin-left:40px;">
+<tbody>
+<tr>
+ <td height="40" align="right" bgcolor="#ffffff">
+ API地址：
+ </td> 
+ <td bgcolor="#ffffff">
+<form action="{eval echo url('index','testapi');}" method="post" target="apiinfo"> <INPUT TYPE="text" name="apiurl" id="apiurl" size="70" value="http://"><INPUT TYPE="submit" VALUE="测试"  class="t002"></form>
+ </td>
+</tr>
+
+<tr>
+<tr>
+ <td height="40" align="right" bgcolor="#ffffff">
+规则为：
+ </td> 
+ <td  bgcolor="#ffffff">
+ <iframe name="apiinfo" src="about:blank"  style="display:none;" frameborder="0">
+	
+	</iframe>
+	<TEXTAREA NAME="" id="regurl" ROWS="" COLS="" style="width:500px;height:200px;font-size:14px;">
+	
+	</TEXTAREA>
+ </td> 
+</tr>
+<tr>
+</tr>
+
+</tbody>
+</table>
+</div>
+       
+    </div>
+    <div style="clear:both;">
+    
+	 </div>
+	 <div class="go_top"><a href="#"><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/go_top.gif" /></a></div>
+    <div style="clear:both;overflow:hidden;"></div>
+  </div>
+  <div class="main_bottom"></div>
+</div>
+{template footer}

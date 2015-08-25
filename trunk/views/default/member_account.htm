@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta content="text/html; charset={$GLOBALS[charset]}" http-equiv="Content-Type">
+<title>无标题文档</title>
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+
+<script language="javascript" src="{SITE_ROOT}/views/js/calendar.js"></script>
+</head><body>
+
+
+<table width="700" cellspacing="0" cellpadding="0" border="0" align="center">
+  <tbody><tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="40"><strong>&nbsp;帐户资料</strong></td>
+  </tr>
+</tbody></table>
+<table width="700" cellspacing="1" cellpadding="0" border="0" align="center" class="t001">
+ <form action="index.php?con=user&act=account" method="post" name="hz_xinzeng">
+ <input type="hidden" name="commit" value="1">
+  <tbody>
+    <tr>   
+   <td height="40" width="97" bgcolor="#ffffff" align="right">帐户：</td>
+    <td width="600" bgcolor="#ffffff">&nbsp;
+      {eval echo $GLOBALS[session]->get('username');}</td>
+  </tr>
+  <tr>   
+   <td height="40" width="97" bgcolor="#ffffff" align="right">旧密码：</td>
+    <td width="600" bgcolor="#ffffff">&nbsp;
+      <input type="password" maxlength="60" size="60" id="password" name="password" value=""></td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">新密码：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="password" maxlength="30" size="60" id="newpassword" name="newpassword" value="">
+      </td>
+  </tr>
+ 
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">确认新密码：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="password" maxlength="200" size="40" id="newpassword1" name="newpassword1"></td>
+  </tr>
+  
+  <tr>
+    <td height="40" bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">&nbsp; <input type="submit" value="提 交" id="mr_xinzeng" class="t002" name="hz_xinzeng"></td>
+  </tr>
+</tbody></table>
+</form>
+<p>&nbsp;</p>
+</body></html>

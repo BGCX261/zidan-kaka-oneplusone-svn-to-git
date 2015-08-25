@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head> 
+
+
+<meta content="text/html; charset={$GLOBALS[charset]}" http-equiv="Content-Type">
+<script language="javascript" src="{SITE_ROOT}/views/js/jquery.js"></script>
+
+<title>无标题文档</title>
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+</head><body>
+<table width="710" cellspacing="0" cellpadding="0" border="0" align="center">
+  <tbody><tr>
+    <td height="25" colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="40" width="668"><strong>&nbsp;每日团购信息</strong></td>
+    <td width="132" align="center">&nbsp;</td>
+  </tr>
+</tbody></table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	function deletedata(id,obj)
+	{
+		if(confirm('是否真的删除吗?'))
+		{
+			$.ajax({
+   				type: "POST",
+   				url: "{eval echo url('user','deletegroup');}",
+				data: "delid="+id,
+   				success:function(msg){
+					if(msg=='success')
+					{
+						alert('删除成功');
+						$("#"+obj).hide();
+					}
+					else if(msg=='level')
+					{
+						alert('无权限');
+					}
+					else if(msg=='nouser')
+					{
+						alert('请重新登录');
+					}
+					else
+					{
+						alert('删除失败');
+					}
+   				}
+			});
+		}
+	}
+//-->
+</SCRIPT>
+<table width="710" cellspacing="1" cellpadding="0" border="0" align="center" class="t001">
+ <form></form> <tbody><tr>
+    <td height="35" width="153" bgcolor="#dadada" align="center"><strong>标题</strong></td>
+    <td width="124" bgcolor="#dadada" align="center"><strong>截止时间</strong></td>
+    <td width="119" bgcolor="#dadada" align="center"><strong>提交时间</strong></td>
+    <td width="58" bgcolor="#dadada" align="center"><strong>类别</strong></td>
+    <td width="51" bgcolor="#dadada" align="center"><strong>城市</strong></td>
+    <td width="56" bgcolor="#dadada" align="center"><strong>状态</strong></td>
+    <td width="61" bgcolor="#dadada" align="center"><strong>操作</strong></td>
+    </tr>
+	<!--{loop $group[data] $k $v}-->
+     <tr id="data{$k}">
+     <td height="32" bgcolor="#ffffff" class="t005"> &nbsp; <a title="{$v[subject]}" target="_blank" href="{$v[url]}">{$v[subject]}</a></td>
+     <td bgcolor="#ffffff" align="center">{eval echo date('Y-m-d H:i:s',$v[lasttime])}</td>
+     <td bgcolor="#ffffff" align="center">{eval echo date('Y-m-d H:i:s',$v[updatetime])}</td>
+     <td bgcolor="#ffffff" align="center">{$GLOBALS[cate][$v[grouptype]][catename]}</td>
+     <td bgcolor="#ffffff" align="center">{$GLOBALS[city][$v[cityid]][cityname]}</td>
+     <td bgcolor="#ffffff" align="center" class="t004"><!--{if $v[ispassed]}-->审核通过<!--{else}-->未审核<!--{/if}--></td>
+     <td bgcolor="#ffffff" align="center"> <!--{if !$v[ispassed]}--><a href="{eval echo url('user','addgroup',array('updateid'=>$v[id]));}"><img height="14" width="14" border="0" alt="修改" src="{SITE_ROOT}/views/{TPLDIR}/imgs/003.jpg"></a> &nbsp; <a onclick="deletedata('{$v[id]}','data{$k}')" href="#"><img height="11" width="11" border="0" src="{SITE_ROOT}/views/{TPLDIR}/imgs/004.jpg"></a><!--{/if}--></td>
+    </tr>
+    <!--{/loop}-->
+</tbody></table>
+<table width="710" cellspacing="0" cellpadding="0" border="0" align="center">
+  <tbody><tr>
+    <td height="30" align="right"><strong>注</strong>：信息通过审核后将不可修改！</td>
+  </tr>
+</tbody></table>
+</body></html>

@@ -1,0 +1,58 @@
+<div class="main_banner">
+  		<div class="main_banner_top">
+            <ul class="banner_nav">
+				<!--{eval $i=1;}-->
+			  <!--{loop $GLOBALS[sitecate] $k $v}-->
+			 <li id="nav_{$i}" class="nav_{$i}">
+			  <a href="#?nav_{$i}" name="nav_{$i}">{$v[sitecatename]}</a></li>
+			  <!--{eval $i++;}-->
+			  <!--{/loop}-->
+            </ul>
+            <ul class="banner_share">
+				<li class="fenxiang">分享到：</li>
+                <li id="deal-share-im" class="msn"><a href="#"onclick="setClipboard('{$GLOBALS[title]}{$GLOBALS[seo_title]}-{SITE_ROOT}',true);">MSN/QQ</a><div style="display:none;" id="flashcopier"></div></li>
+                <li class="kaixin"><a  href="http://www.kaixin001.com/repaste/share.php?rurl={SITE_ROOT}&rtitle={$GLOBALS[title]}{$GLOBALS[seo_title]}" target="_blank" >开心</a></li>
+                <li class="renren"><a  href="http://share.renren.com/share/buttonshare.do?link={SITE_ROOT}" target="_blank">人人</a></li>
+                <li class="douban"><a  href="http://www.douban.com/recommend/?url={SITE_ROOT}&title={$GLOBALS[title]}{$GLOBALS[seo_title]}" target="_blank">豆瓣</a></li>
+                <li class="sina"><a  href="http://v.t.sina.com.cn/share/share.php?url={SITE_ROOT}&title={$GLOBALS[title]}{$GLOBALS[seo_title]}" target="_blank">新浪微博</a></li>
+                <li class="sohu"><a  href="http://bai.sohu.com/share/blank/addbutton.do?link={$GLOBALS[title]}{$GLOBALS[seo_title]}-{SITE_ROOT}" target="_blank">白社会</a></li>
+                <li class="email"><a  href="mailto:?body={$GLOBALS[title]}{$GLOBALS[seo_title]}-{SITE_ROOT}" target="_blank">邮件</a></li>
+            </ul>
+         </div><input id="deal-share-im-c" type="hidden"value="{$GLOBALS[title]}{$GLOBALS[seo_title]}-{SITE_ROOT}"/>
+         <div class="main_banner_1">
+             <!--{eval $i=1;}-->
+			 <!--{loop $site_top $k $v}-->
+			 <div class="main_banner_1_list" id="nav_{$i}_menu" <!--{if $i>1}--> style="display:none;"<!--{/if}-->>
+			 <ul class="main_banner_ul_1">
+			 <!--{loop $v $key $val}-->
+			 <li><a href="javascript:;" style="float:left;{$val[css]}"  onclick='click_b("{$val[siteurl]}","_blank")'>{$val[sitename]}</a></li>
+			 <!--{/loop}-->
+			 <li><a href="<!--{eval echo url('index','site',array('sitetype'=>$k));}-->" target="_blank">更多>></a></li>
+			 </ul></div>
+			 <!--{eval $i++;}-->
+			 <!--{/loop}-->
+    	</div>
+    	<div class="main_banner_2">
+        	<ul id="Item">
+			 <!--{loop $disgoodslist $k $v}-->
+                <li>
+                    <div class="zhekou_img">
+                    	<a href="{$v[link]}" title="{$v[title]}" target="_blank"><img src="{SITE_ROOT}/{$v[thumb]}" style="width:86px;height:86px;" alt=" {$v[title]}"/></a>                    
+                    </div>                
+                    <div class="zhekou_content">
+                    	<div class="zhekou_title">
+                        	<a  href="{$v[link]}" target="_blank"> {$v[title]}</a>
+                        </div>
+                        <div class="zhekou_content_1" style="width:184px;height:61px;overflow:hidden;">
+                        	<a  href="{$v[link]}" target="_blank">
+							
+							  {$v[content]}             
+							</a>
+                        </div>
+                    </div>
+               	</li>
+			<!--{/loop}-->
+            </ul>
+        </div>
+        <div style="clear:both;"></div>
+  </div>

@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^([a-zA-z0-9_-]+)\.html?$ index.php?&repparam=$1 [L]
+RewriteRule ^([a-zA-z0-9]*)/([a-zA-z0-9_-]+)\.html?$ index.php?con=index&act=$1&repparam=$2 [L]
+RewriteRule ^([a-zA-z0-9]*)/([a-zA-z0-9]*)/([a-zA-z0-9_-]+)\.html?$ index.php?con=$1&act=$2&repparam=$3 [L]
+RewriteRule ^([a-zA-z0-9]*)/([a-zA-z0-9]*)?$ index.php?con=$1&act=$2 [L]
+RewriteRule ^([a-zA-z0-9]*)$ index.php?con=$1 [L]
+</IfModule>

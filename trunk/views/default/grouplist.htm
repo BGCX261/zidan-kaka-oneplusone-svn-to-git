@@ -1,0 +1,125 @@
+{template header}
+<script language="javascript">
+(function($) {
+$.fn.ApexSlider = function(o) {
+var timer =undefined;
+o = $.extend({
+speed: 500,
+step:4000
+}, o || {});
+
+return this.each(function() {
+var box = $(this);
+    box.css("position","absolute");
+var children=  $(this).children();
+    children.css("position","absolute");
+   
+var height  =parseInt( box.css("height").replace("px"));
+
+children.each(function(i){
+$(this).css("top",i*(height-110) +"px");
+}).hover(function(){
+stop();
+},
+function(){
+start();
+}
+);
+function start(){
+timer = setInterval(function() {
+go();
+},o.step);
+}
+
+function stop(){
+if(timer){
+clearInterval(timer);
+}
+}
+start();
+
+function go(){
+
+children.animate({top:"-="+(height-110)},o.speed,"swing",function(){
+restore();
+});
+	
+}
+
+function restore(){
+var top=0;
+var topEl=undefined;
+
+children.each(function(i){
+var temp = parseInt($(this).css("top").replace("px") );
+if(temp<top){
+topEl =$(this);
+top=temp;
+}
+});
+if(topEl)
+topEl.css("top",(children.size()-1)*(height-110)+"px");
+
+}
+
+});
+};
+})(jQuery);
+$(document).ready(function(){
+
+	$("#Item").ApexSlider();
+});
+
+</script>
+<div class="main">
+   <div class="main_bg_top"></div> 
+  <div class="main_box">
+    <div class="search">
+      <div class="search_1">
+        <ul class="fenlei" cid="">
+          <li cid="" id="alllei">所有团购</li>
+		  <!--{loop $GLOBALS[cate] $k $v}-->
+          <li cid="{$k}">&nbsp;{$v[catename]}</li>
+		  <!--{/loop}-->
+        </ul>
+        <div class="search_2">
+          <div class="search_input">
+          <form name="search_shopping" action="index.php" target="_blank" method="post">
+            <input type="text" name="search_text" value="{$keyword}"/>
+            </div>
+            <input class="search_button" type="submit" value=""/>
+          </form>
+        </div>
+      </div>
+	  <span style="display:none" id="temppaixu"></span>
+      <div class="price">
+        <div class="price_1" m="">
+          <ul >
+            <li id="allprice">所有价格</li>
+            <li>50元以下</li>
+            <li>50-100元</li>
+            <li>100-200元</li>
+            <li>200-300元</li>
+            <li>300元以上</li>
+          </ul>
+        </div>
+        <div class="paixu">
+          <ul>
+            <li onclick="window.location.reload();">默认排序</li>
+            <li tit='lasttime0'>时间排序</li>
+            <li tit='newprice0'>价格排序</li>
+            <li tit='discount1'>折扣排序</li>
+            <li tit='hits1'>人气排序</li>
+          </ul>
+        </div>
+		
+      </div>
+    </div>
+	
+	<div id="gooddata" style="clear:both;" >
+	{template ajax_index}
+	</div>
+  </div>
+  <div class="main_bottom"></div>
+</div>
+{template footer}

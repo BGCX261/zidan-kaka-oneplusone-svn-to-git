@@ -1,0 +1,119 @@
+{template header}
+<meta http-equiv="Pragma" content="no-cache">
+<div class="main">
+<link href="{SITE_ROOT}/views/{TPLDIR}/css/site.css" rel="stylesheet"  type="text/css" />
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+   <div class="main_bg_top"></div> 
+  <div class="main_box" style="background:url({SITE_ROOT}/views/{TPLDIR}/imgs/message_logo.gif) no-repeat 10px top;">
+ 	<div style="height:40px;clear:both;border-bottom:1px solid #ccc;width:940px;margin:auto;"></div>
+	 <div class="sitelist">
+
+<div class="usermenu">
+<div><h2>网站征集</h2></div>
+<ul>
+<li><A HREF="{eval echo url('index','siteadd');}">网站提交</A></li>
+<li><A HREF="{eval echo url('index','apiinfo');}">API测试</A></li>
+<li><A HREF="{eval echo url('index','guestbook');}">意见反馈</A></li>
+</ul>
+
+</div>
+<div class="infoarea">
+<table width="700" cellspacing="0" cellpadding="0" border="0" style="margin-left:40px;">
+  <tbody>
+  <tr>
+    <td height="40"><strong>&nbsp;网站提交</strong></td>
+  </tr>
+</tbody></table>
+ <form action="{eval echo url('index','siteadd');}" method="post">
+<table width="700" cellspacing="1" cellpadding="0" border="0" class="t001" style="margin-left:40px;">
+
+ <input type="hidden" name="commit" value="1">
+     <tbody>
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff"><font color="#ff0000">*</font> 网站名称：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="100" id="sitename" size="60" class="q004" name="sitename"></td>
+   </tr>
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff"><font color="#ff0000">*</font> 网站地址：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="200" id="siteurl" size="60"  class="q004" name="siteurl" value="http://"></td>
+   </tr>
+    <tr>
+	 <td height="40" align="right" bgcolor="#ffffff"> 网站API：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="200" id="siteapi" size="60"  class="q004" name="siteapi" value="http://"></td>
+   </tr>
+   <tr>
+	<td height="40" bgcolor="#ffffff" align="right">所在城市：</td>
+	<td  bgcolor="#ffffff">
+	<select style="height: 25px; width: 186px;" name="cityid">
+			<option value="全国">全国</option>
+            <!--{loop $GLOBALS[city] $k $v}-->
+			<option value="{$v[cityname]}">{$v[cityname]}</option>
+			<!--{/loop}-->
+			</select>
+   </td>
+  </tr>
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff">联系电话：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="60" id="tel" class="q004" name="tel"></td>
+   </tr>
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff"><font color="#ff0000">*</font> QQ：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="60" id="qq" class="q004" name="qq"></td>
+   </tr>
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff">联系人：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="60" id="people" class="q004" name="people"></td>
+   </tr>
+  
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff">&nbsp;</td>
+	 <td bgcolor="#ffffff"><input type="submit" value="提 交" id="url_add" class="t002" name="url_add">（提交即同意以下协议）</td>
+   </tr>
+	<tr>
+	<td height="40" align="right" bgcolor="#ffffff">提交协议：</td>
+	 <td bgcolor="#ffffff"><textarea style="width:500px;height:200px;">{$GLOBALS[setting][site_applyintro]}</textarea></td>
+   </tr>
+</tbody></table>
+</form>
+<table width="700" cellspacing="0" cellpadding="0" border="0" style="margin-left:40px;">
+  <tbody>
+  <tr>
+    <td height="40"><strong>&nbsp;友情链接示例：</strong></td>
+  </tr>
+</tbody></table>
+<table width="700" cellspacing="1" cellpadding="0" border="0" style="margin-left:40px;">
+        <tbody>
+        <tr>
+          <td height="35" width="103" align="right">网站说明：</td>
+          <td width="547">&nbsp; {$GLOBALS[title]}</td>
+        </tr>
+        <tr>
+          <td height="35" align="right">首页地址：</td>
+          <td>&nbsp; <input type="text" value="{SITE_ROOT}"></td>
+        </tr>
+        <tr>
+          <td height="35" align="right">图片链接：</td>
+          <td height="50">&nbsp; <img src="{SITE_ROOT}/{$GLOBALS[setting][site_logo]}"></td>
+        </tr>
+        <tr>
+          <td height="35" align="right">LOGO地址：</td>
+          <td> &nbsp;
+          <input type="text" value="{SITE_ROOT}/{$GLOBALS[setting][site_logo]}"></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+    </tbody></table>
+</div>
+       
+    </div>
+    <div style="clear:both;">
+    
+	 </div>
+	 <div class="go_top"><a href="#"><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/go_top.gif" /></a></div>
+    <div style="clear:both;overflow:hidden;"></div>
+  </div>
+  <div class="main_bottom"></div>
+</div>
+{template footer}

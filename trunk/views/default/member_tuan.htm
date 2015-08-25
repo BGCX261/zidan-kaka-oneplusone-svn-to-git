@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta content="text/html; charset={$GLOBALS[charset]}" http-equiv="Content-Type">
+<title>无标题文档</title>
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+
+<script language="javascript" src="{SITE_ROOT}/views/js/calendar.js"></script>
+</head><body>
+
+
+<table width="700" cellspacing="0" cellpadding="0" border="0" align="center">
+  <tbody><tr>
+    <td height="25">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="40"><strong>&nbsp;新增每日团购</strong></td>
+  </tr>
+</tbody></table>
+<table width="700" cellspacing="1" cellpadding="0" border="0" align="center" class="t001">
+ <form enctype="multipart/form-data" action="{eval echo url('user','addgroup');}" method="post" name="hz_xinzeng">
+ <input type="hidden" name="commit" value="1">
+  <input type="hidden" name="updateid" value="{$updateid}">
+  <tbody><tr>   
+   <td height="40" width="97" bgcolor="#ffffff" align="right">标题：</td>
+    <td width="600" bgcolor="#ffffff">&nbsp;
+      <input type="text" maxlength="60" size="60" id="title" name="title" value="{$group[subject]}">&nbsp;&nbsp; 14字以内</td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">搜索关键字：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="text" maxlength="30" size="60" id="key_word" name="key_word" value="{$group[keyword]}">
+      </td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right" rowspan="2">图片上传：</td>
+    <td height="40" bgcolor="#ffffff">
+	<!--{if $group[thumb]}--><img src="{SITE_ROOT}/{$group[thumb]}" width="100px" onclick='window.open(this.src,"","");' alt="{$group[subject]}"/><br/>点击图片看大图<!--{/if}-->
+    </td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff">&nbsp; <input type="file" id="file_img" name="file_img">
+     &nbsp;&nbsp; 图片最佳尺寸190px*115px</td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">链接地址：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="text" maxlength="200" size="40" value="{$group[url]}" id="url" name="url"></td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">截止时间：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="text" onfocus="HS_setDate(this);" maxlength="30" size="15" value="{eval echo date('Y-m-d H:i',$group[lasttime]?$group[lasttime]:time());}" id="over_date" name="over_date"></td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">发布城市：</td>
+    <td bgcolor="#ffffff">&nbsp; <select id="select" name="city">
+		<!--{if $group[cityid]}--><option value="{$group[cityid]}-{$group[cityname]}">{$group[cityname]}</option><!--{/if}-->
+            <!--{loop $GLOBALS['city'] $k $v}-->
+			<option value="{$k}-{$v[cityname]}">{$v[cityname]}</option>
+			<!--{/loop}-->
+          </select></td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">所属类别：</td>
+    <td bgcolor="#ffffff">&nbsp;
+    <span style="float: left; padding-top: 13px;">
+      &nbsp;&nbsp;<select id="class_id" name="class_id">
+	  <!--{if $group[grouptype]}--><option value="{$group[grouptype]}">{$GLOBALS['cate'][$group[grouptype]][catename]}</option><!--{/if}-->
+             <!--{loop $GLOBALS['cate'] $k $v}-->
+			<option value="{$k}">{$v[catename]}</option>
+			<!--{/loop}-->
+            </select>
+      </span>
+    
+   </td></tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff" align="right">原价：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="text" onkeypress="javascript:KeyPress(this);" value="{$group[oldprice]}" maxlength="6" size="10" id="yuan_money" name="yuan_money">&nbsp;&nbsp; 人民币
+     </td>
+    
+  </tr>
+  <tr>
+  <td height="40" bgcolor="#ffffff" align="right">现价：</td>
+    <td bgcolor="#ffffff">&nbsp;
+      <input type="text" onkeypress="javascript:KeyPress(this);" maxlength="6"  value="{$group[nowprice]}" size="10" id="now_money" name="now_money">&nbsp;&nbsp; 人民币
+     </td>
+  </tr>
+  <tr>
+    <td height="40" bgcolor="#ffffff">&nbsp;</td>
+    <td bgcolor="#ffffff">&nbsp; <input type="submit" value="提 交" id="mr_xinzeng" class="t002" name="hz_xinzeng"></td>
+  </tr>
+</tbody></table>
+</form>
+<p>&nbsp;</p>
+</body></html>

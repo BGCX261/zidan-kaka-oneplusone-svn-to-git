@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$GLOBALS[charset]}" />
+<meta name="description" content="{$GLOBALS[setting_seo_description]}" />
+<meta content="{$GLOBALS[setting_seo_keyword]}" name="keywords"/>
+<title>找回密码页面</title>
+<link rel="stylesheet" type="text/css" href="{SITE_ROOT}/views/{TPLDIR}/css/login.css" />
+</head>
+<body>
+<div class="body">
+  <div class="login_top"> 您好，欢迎来到{$GLOBALS[title]}{$GLOBALS[seo_title]}！ </div>
+  <div class="login">
+    <ul class="login_top_2">
+
+      <li><a href="{eval echo url('user','login');}">用户登录入口</a></li>
+      <li><a href="{eval echo url('user','register');}">用户注册入口</a></li>
+    </ul>
+    <div class="login_box">
+      <form action="{eval echo url('user','forget');}" method="post" name="index_login">
+	  <input name="commit" type="hidden" value="1" />
+	  
+        <div class="login_box_line"><span><b>用户账号：</b></span>
+          <div class="login_input_1">
+
+            <input name="email" type="text" />
+          </div>
+        </div>
+
+        <div class="login_input_4">
+          <input type="submit" value="" />
+          <a href="{eval echo url('user','login');}">登录？</a></div>
+      </form>
+      <div class="hr"></div>
+      <div class="tishi"> <b>温馨提示：</b>用户账号就是您注册时的E-mail！ </div>
+    </div>
+
+    <div class="login_bottom_2"></div>
+  </div>
+  <div class="attr">
+    <p><b>团购导航第一品牌：我们共同的选择</b></p>
+    <p>汇聚全宇宙最低折扣精品消费</p>
+    <p>好久没有人把钱省得这么清新脱俗啦~</p>
+  </div>
+
+  <div class="footer">
+ {$GLOBALS[setting][site_copyright]}
+  </div>
+  </div>
+</div>
+</body>
+</html>

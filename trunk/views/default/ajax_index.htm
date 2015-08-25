@@ -1,0 +1,41 @@
+<div class="good">
+	 <ul>
+		<!--{loop $grouplist[data] $key $val}-->
+		<li>
+		  <div class="kuai">
+			<div class="kuai_1" ><A href="javascript:;" style="color:#333333;font-size:14px;"  onclick='click_c("{$val[id]}","#{$val[siteid]}","_blank")'>【{$val[groupsite]}】</A>{if $GLOBALS[setting][site_allow_showcity]}<a href="{eval echo url('index','index',array('cityid'=>$val['cityid']));}" style="color:#ff6600;font-size:14px;">【{$val[cityname]}】</a>{/if} <a href="javascript:;" onclick="click_c('{$val[id]}','{$val[url]}','_blank');" title="{$val[subject]}" class="title_content">{$val[shortsubject]}</a></div>
+			<div class="kuai_2"><a href="javascript:;" onclick="click_c('{$val[id]}','{$val[url]}','_blank')"><img src="{$val[thumb]}" alt="{$GLOBALS[title]}-{$val[subject]}" class=""/></a></div>
+			<div class="kuai_6"><span style="width:50px;color:#00f" gid={$val[id]}></span></div>
+			<div class="kuai_4">
+			  <div class="kuai_3">现价：<span class="now_price_num">￥{$val[nowprice]}</span></div>
+			  
+			  <div class="p1"><span class="zhekou_num"style="color:#dd137b;font-weight:bold;font-size:16px;text-align:right;">{$val[discount]}<span style="color:#333;">折</span></span></div>
+			</div>
+			<div class="kuai_5">
+				<div class="p2">原价：<span class="yuan_price_num">￥{$val[oldprice]}</span></div>
+			 
+			  <div class="bg2"><label id="article_{$val[id]}"></label><input type="hidden" id="hid_article_{$val[id]}" value="{$val[lasttime]}" /></div>
+			</div>
+			 <div class="bg1">
+			 <p class="hits">{if $GLOBALS[setting][site_allow_hits]}点击<span id="hits{$val[id]}">{$val[hits]}</span>次{/if}</p>
+			 <a href="javascript:;" onclick="click_c('{$val[id]}','{$val[url]}','_blank')"></a>
+			 </div>
+		  </div>
+		</li>
+		<!--{/loop}-->
+				 
+				 
+			
+      </ul>
+    </div>
+    <div style="clear:both;"></div>
+    <div class="page">
+	  
+      <ul>
+        {$grouplist[pageinfo]}
+      </ul>
+    
+    </div>
+	 <div style="clear:both;"></div>
+	 <div class="go_top"><a href="#"><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/go_top.gif" /></a></div>
+    <div style="clear:both;overflow:hidden;"></div>

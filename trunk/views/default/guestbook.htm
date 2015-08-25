@@ -1,0 +1,123 @@
+{template header}
+<meta http-equiv="Pragma" content="no-cache">
+   <!--LOGO、天气、邮箱、手机、充值结束，搜索开始-->
+   <div id="web_search">
+      <dd class="search">
+         <div class="search_btn">
+            <a class="show_red"><h5>百度</h5></a>
+            <a><h5>谷歌</h5></a>
+            <a><h5>雅虎</h5></a>
+            <a><h5>必应</h5></a>
+            <a><h5>搜狗</h5></a>
+            <a><h5>搜搜</h5></a>
+         </div>
+         <div class="search_show">
+         <!--搜索框-->
+         <form action="" method="GET" name="w_search" id="w_search">
+            <input type="hidden" name="s_web" id="s_web" value="baidu" />
+            <div class="search_enter">            
+               <ul>
+                  <li><div id="s_logo"></div></li>
+                  <li style="width:400px"><input name="keyword" class="s_input" type="text" value="请输入搜索关键词" onclick="if(this.value=='请输入搜索关键词'){this.value=''}" onblur="if(this.value==''){this.value='请输入搜索关键词'}" /></li>
+                  <li style="width:70px"><input type="button" name="s_submit" value="" class="s_btn" /></li>
+               </ul>
+            </div>
+            <div class="clear"></div>
+            <!--引擎选择-->          
+            <div class="s_website" id="s_website_0" value="baidu">
+               <h4><input name="baidu_web" type="radio" value="http://www.baidu.com/s?wd=" checked="checked" />网页</h4>
+               <h4><input name="baidu_web" type="radio" value="http://news.baidu.com/ns?word=" />新闻</h4>
+               <h4><input name="baidu_web" type="radio" value="http://tieba.baidu.com/f?kw=" />帖吧</h4>
+               <h4><input name="baidu_web" type="radio" value="http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&word=" />知道</h4>
+               <h4><input name="baidu_web" type="radio" value="http://mp3.baidu.com/m?tn=baidump3&ct=134217728&lm=-1&word=" />MP3</h4>
+               <h4><input name="baidu_web" type="radio" value="http://image.baidu.com/i?tn=baiduimage&ct=201326592&lm=-1&cl=2&word=" />图片</h4>
+               <h4><input name="baidu_web" type="radio" value="http://video.baidu.com/v?rn=20&pn=0&db=0&s=21&word=" />视频</h4>
+            </div>
+            <div class="s_website" id="s_website_1" value="google">
+               <h4><input name="google_web" type="radio" value="http://www.google.com.hk/search?hl=zh-cn&q=" checked="checked" />网页</h4>
+               <h4><input name="google_web" type="radio" value="http://www.google.com.hk/search?tbs=nws:1&source=og&q=" />新闻</h4>
+               <h4><input name="google_web" type="radio" value="http://www.google.cn/products?q=" />购物</h4>
+               <h4><input name="google_web" type="radio" value="http://www.google.cn/music/search?q=" />音乐</h4>
+               <h4><input name="google_web" type="radio" value="http://images.google.com.hk/images?q=" />图片</h4>
+               <h4><input name="google_web" type="radio" value="http://ditu.google.cn/maps?q=" />地图</h4>
+               <h4><input name="google_web" type="radio" value="http://www.google.com.hk/search?tbs=vid%3A1&q=" />视频</h4>
+            </div>
+            <div class="s_website" id="s_website_2" value="yahoo">
+               <h4><input name="yahoo_web" type="radio" value="http://search.cn.yahoo.com/s?p=" checked="checked" />网页</h4>
+               <h4><input name="yahoo_web" type="radio" value="http://news.yahoo.cn/s?q=" />新闻</h4>
+               <h4><input name="yahoo_web" type="radio" value="http://music.yahoo.cn/s?q=" />音乐</h4>
+               <h4><input name="yahoo_web" type="radio" value="http://ks.cn.yahoo.com/search/?keywords=" />知识堂</h4>
+               <h4><input name="yahoo_web" type="radio" value="http://search.cn.yahoo.com/s?v=image&p=" />图片</h4>
+               <h4><input name="yahoo_web" type="radio" value="http://list.tmall.com/search_product.htm?user_action=initiative&at_topsearch=1&sort=st&prc=1&q=" />淘宝商城</h4>
+            </div>
+            <div class="s_website" id="s_website_3" value="bing">
+               <h4><input name="bing_web" type="radio" value="http://cn.bing.com/search?q=" checked="checked" />网页</h4>
+               <h4><input name="bing_web" type="radio" value="http://cn.bing.com/news/search?q=" />新闻</h4>
+               <h4><input name="bing_web" type="radio" value="http://dict.bing.com.cn/?q=" />词典</h4>
+               <h4><input name="bing_web" type="radio" value="http://cn.bing.com/images/search?q=" />图片</h4>
+               <h4><input name="bing_web" type="radio" value="http://cn.bing.com/videos/search?q=" />视频</h4>
+            </div>
+            <div class="s_website" id="s_website_4" value="sogou">
+               <h4><input name="sogou_web" type="radio" value="http://www.sogou.com/web?query=" checked="checked" />网页</h4>
+               <h4><input name="sogou_web" type="radio" value="http://news.sogou.com/news?query=" />新闻</h4>
+               <h4><input name="sogou_web" type="radio" value="http://mp3.sogou.com/music.so?query=" />音乐</h4>
+               <h4><input name="sogou_web" type="radio" value="http://pic.sogou.com/pics?query=" />图片</h4>
+               <h4><input name="sogou_web" type="radio" value="http://v.sogou.com/v?query=" />视频</h4>
+               <h4><input name="sogou_web" type="radio" value="http://wenda.sohu.com/search?query=" />问答</h4>
+            </div>
+            <div class="s_website" id="s_website_5" value="soso">
+               <h4><input name="soso_web" type="radio" value="http://www.soso.com/q?w=" checked="checked" />网页</h4>
+               <h4><input name="soso_web" type="radio" value="http://news.soso.com/n.q?w=" />新闻</h4>
+               <h4><input name="soso_web" type="radio" value="http://cgi.music.soso.com/fcgi-bin/m.q?w=" />音乐</h4>
+               <h4><input name="soso_web" type="radio" value="http://image.soso.com/image.cgi?w=" />图片</h4>
+               <h4><input name="soso_web" type="radio" value="http://video.soso.com/search/?w=" />视频</h4>
+               <h4><input name="soso_web" type="radio" value="http://sobar.soso.com/search/" />搜吧</h4>
+               <h4><input name="soso_web" type="radio" value="http://blog.soso.com/qz.q?ty=blog&w=" />博客</h4>
+            </div>
+            </form>
+         </div>
+      </dd>
+      <dd class="search_ad"><img src="{SITE_ROOT}/views/{TPLDIR}/images/main_12.gif" /></dd>
+   </div>
+<div class="main">
+<link href="{SITE_ROOT}/views/{TPLDIR}/css/site.css" rel="stylesheet"  type="text/css" />
+<link type="text/css" rel="stylesheet" href="{SITE_ROOT}/views/{TPLDIR}/css/tuan.css">
+<div class="usermenu">
+<div><h2>网站征集</h2></div>
+<ul>
+<li><A HREF="{eval echo url('index','siteadd');}">网站提交</A></li>
+<li><A HREF="{eval echo url('index','apiinfo');}">API测试</A></li>
+<li><A HREF="{eval echo url('index','guestbook');}">意见反馈</A></li>
+</ul>
+
+</div>
+<div class="infoarea">
+<table width="700" cellspacing="0" cellpadding="0" border="0" style="margin-left:40px;">
+  <tbody>
+  <tr>
+    <td height="40"><strong>&nbsp;意见反馈</strong></td>
+  </tr>
+</tbody></table>
+ <form action="{eval echo url('index','guestbook');}" method="post">
+ <input type="hidden" name="commit" value="1">
+<table width="700" cellspacing="1" cellpadding="0" border="0" class="t001" style="margin-left:40px;"> 
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff"><font color="#ff0000">*</font> 标题：</td>
+	 <td bgcolor="#ffffff"><input type="text" maxlength="100" id="title" size="60" class="q004" name="title"></td>
+   </tr>
+   <tr>
+	<td height="40" align="right" bgcolor="#ffffff">内容：</td>
+	 <td bgcolor="#ffffff"><textarea name="content" style="width:500px;height:200px;"></textarea></td>
+   </tr>
+  
+   <tr>
+	 <td height="40" align="right" bgcolor="#ffffff">&nbsp;</td>
+	 <td bgcolor="#ffffff"><input type="submit" value="提 交" id="url_add" class="t002" name="url_add"></td>
+   </tr>
+</table>
+</form>
+</div>
+  <div class="go_top"><a href="#"><img src="{SITE_ROOT}/views/{TPLDIR}/imgs/go_top.gif" /></a></div>
+  <div class="main_bottom"></div>
+</div>
+{template footer}

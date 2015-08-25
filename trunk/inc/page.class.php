@@ -1,0 +1,134 @@
+<?php
+/*
+	[Phpup.Net!] (C)2009-2011 Phpup.net.
+	This is NOT a freeware, use is subject to license terms
+
+	$Id: page.class.php 2010-08-24 10:42 $
+*/
+
+if(!defined('IN_PHPUP')) {
+	exit('Access Denied');
+}
+/**
+ *新闻分页类
+ *作者:李孟琦(phpup.net)
+ *功能:通用分页程序
+ *------------------------------------------------------------------------------------------------
+$sql="select * from 表";
+$query=mysql_query($sql);
+$nums=mysql_num_rows($query);
+$page=new page($nums);
+$page->setPage();
+$page->url="";
+$button=$page->setFormatPage();
+$page->parseVal();
+$str="总数:".$page->count." 总页数:".$page->total." 每页:".$page->pageSize." 当前页".$page->absolutePage." <A HREF='".$page->url."=0'>首页</A>";
+$str.="<A HREF='".$page->url."=".$page->prevPage."'>上一页</A>";
+foreach($button as $key=>$v)
+{
+	if($v==$page->absolutePage)
+	{
+		$str.="<span>".($v+1)."</span>";
+	}
+	else
+	{
+		$str.="<a href='".$page->url."=".$v."'>".($v+1)."</a>";
+	}
+}
+$str.="<A HREF='".$page->url."=".$page->nextPage."'>下一页</A> <A HREF='".$page->url."=".$page->total."'>尾页</A>";
+echo $str;
+ *-------------------------------------------------------------------------------------------------
+*/
+class page
+{
+	var $count=0; //列表总数量,必须自定义
+	var $total=0; //总页数,不用更改,自动计算
+	var $absolutePage=0; //当前页
+	var $pageSize=30; //每页数量
+	var $getVal='page'; //通过外部传过来的参数变量 
+	var $url=''; //网址,在后面会自动加上参数
+	var $pageShowButton=14; //显示出来按钮页的数量
+	function page($count)
+	{
+		$this->count=$count;
+	}
+	//返回分页结果
+	function setPage()
+	{
+		$this->pageSize=$this->pageSize>0?$this->pageSize:30;
+		$this->absolutePage=abs(intval(!empty($_REQUEST[$this->getVal])?$_REQUEST[$this->getVal]:0));
+		$this->total=ceil($this->count/$this->pageSize);
+		if($this->absolutePage>0)
+		{
+			$this->prevPage=$this->absolutePage<$this->total?($this->absolutePage-1<0?0:$this->absolutePage-1):($this->total-1<0?0:$this->total-1);
+		}
+		else
+		{
+			$this->prevPage=0;
+		}
+
+		if($this->absolutePage<$this->total)
+		{
+			$this->nextPage=$this->absolutePage+1;
+		}
+		else
+		{
+			$this->nextPage=$this->total;
+		}
+	}
+	
+	//得到格式分的分页
+	function setFormatPage()
+	{
+		$result=array();
+		$pageshow=$this->pageShowButton;
+		$center=ceil($pageshow/2);
+		
+		if($this->absolutePage<$center)
+		{
+			$left=0;
+			if($pageshow<=$this->total)
+			{
+				$right=$pageshow;
+			}
+			else
+			{
+				$right=$this->total;
+			}
+		}
+		elseif($this->absolutePage>=$center)
+		{
+			
+			if($this->absolutePage+$center<=$this->total)
+			{
+				$right=$this->absolutePage+$center;
+				$left=$this->absolutePage-$center>0?$this->absolutePage-$center:0;
+			}
+			elseif($this->absolutePage+$center>$this->total)
+			{
+				$right=$this->total;
+				$left=$this->total-$pageshow>0?$this->total-$pageshow:0;
+			}
+		}
+		for($i=$left;$i<$right;$i++)
+		{
+			$result[]=$i;
+		}
+		return $result;
+	}
+	//分析url
+	function parseVal()
+	{
+		if(strpos('a'.$this->url,'?')>0)
+		{
+			$de='&';
+		}
+		else
+		{
+			$de='?';
+		}
+		$this->url=$this->url.$de.$this->getVal;
+	}
+	
+	
+}

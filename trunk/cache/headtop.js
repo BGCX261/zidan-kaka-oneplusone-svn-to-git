@@ -1,0 +1,1 @@
+document.write('<a href=\"#\"><img border=\"0\" src=\"http://www.kaka101.com/data/upload/tempimg/3edf6e87e67d7c19117b.gif\" style=\"width:950px;height:63px;\" alt=\"หตร๗\"/></a>');

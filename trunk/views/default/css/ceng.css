@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+#ceng1{
+	position:absolute;
+	width:250px;
+	height:auto;
+	left:50px;
+	display:none;
+	top:50px;
+	z-index:888;
+	border:1px #DF4C18 solid;
+	background:#FFEEFF;
+	float:left;
+	margin-top:50px;
+	_margin-top:40px;
+}
+#img{
+	position:absolute;
+	left:310px;
+	top:70px;
+	z-index:888;
+	display:none;
+}
+	
+/*#city{
+	height:23px;
+	width:50px;
+	display:block;
+	float:left;
+	<!--background:#d1d1d1;-->
+	font-size:15px;
+	font-weight:bold;
+	padding-top:7px;
+	padding-left:15px;
+}*/
+#ceng1{
+	width:630px;
+	height:auto;
+	float:left;
+	background:#FFEEFF;
+	border:1px #DF4C18 solid;
+	/*padding-bottom:10px !important;
+	_padding-bottom:0px;*/
+}
+#ul{
+	width:630px;
+	height:auto;
+	padding:0px;
+	margin:0px;
+	margin-left:10px;
+	padding-top:5px;
+	
+}
+#ul li{
+	float:left;
+	line-height:20px;
+	height:30px;
+	width:55px;
+	margin-top:5px;
+	margin-left:10px;
+	list-style:none;
+	padding-left:5px;
+	padding-top:5px;
+}
+#ul li a{
+	text-decoration:none;
+	color:#956859;
+	font-size:15px;
+	cursor:pointer;
+	display:table;
+	line-height:25px;
+	width:68px;
+	padding-left:8px;
+}

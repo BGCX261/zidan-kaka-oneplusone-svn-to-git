@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$GLOBALS[charset]}" />
+<meta name="description" content="{$GLOBALS[setting_seo_description]}" />
+<meta content="{$GLOBALS[setting_seo_keyword]}" name="keywords"/>
+<title>您好，欢迎来到{$GLOBALS[title]}{$GLOBALS[seo_title]}</title>
+<link rel="stylesheet" type="text/css" href="{SITE_ROOT}/views/{TPLDIR}/css/login.css" />
+
+<script language="javascript" src="{SITE_ROOT}/views/js/jquery.js"></script>
+<script language="javascript">
+	$(function(){
+			   
+			   
+			   $(".pwd").focus(function(){
+		
+								var va=$(".name").val();
+								if(va.indexOf("@")>0){
+								
+									
+								}
+								else{
+									alert("邮箱不正确！");
+									$(".name").attr("value","");
+									$(".name").focus();
+								}
+						})
+			    $(".pwd2").focus(function(){
+		
+								var va=$(".name").val();
+								if(va.indexOf("@")>0){
+								
+									
+								}
+								else{
+									alert("邮箱不正确！");
+									$(".name").attr("value","");
+									$(".name").focus();
+								}
+						})
+			   
+			   $("#reg").click(function(){
+						
+						
+						
+				        if($(".name").val()==""){
+							
+								alert("用户名不能为空！");
+								return false;
+							
+							};
+						
+							
+						
+						if($(".pwd").val()!=$(".pwd2").val()){
+						
+						   
+						   		alert("密码不一致！");
+								return false;
+						   }
+						if($(".pwd").val()==""){
+						
+						    alert("密码不能为空！");
+								return false;
+						
+						}
+						
+						
+						
+						
+						if($(".check_reg").attr("checked")==true){
+						
+						         
+						
+								 $("#reg2").css("display","block");
+								 $("#reg2").css("left",'0px');
+								 $(".reg2_button_1").click(function(){
+								
+								     
+									  document.index_login.action="index.php";
+				                      document.index_login.submit();
+								
+								  
+								 });
+								 $(".reg2_sub").click(function(){
+								
+								     
+									  document.index_login.action="index.php";
+				                      document.index_login.submit();
+								
+								  
+								 });
+								 
+								 
+								 
+								
+						}
+                        if($(".check_reg").attr("checked")==false)
+						
+		                     {					       
+		                    document.index_login.action="index.php";
+				           document.index_login.submit();
+                         }
+						
+						
+					   })
+			   
+			   
+			   $("#reg2_button_1").click(function(){
+												window.location="index.php";  
+												  })
+			   })
+</script>
+</head>
+<body>
+<form action="index.php" method="post" name="index_login">
+<div class="body">
+<div class="reg2" id="reg2">
+<ul class="reg2_top">
+  <li>设置账号密码</li>
+  <li>选择用户类型</li>
+
+  <li class="reg2_over">完成注册</li>
+</ul>
+<div class="reg2_box">
+  <div class="reg2_line"><span><b>网站名称：</b></span>
+	<div class="reg2_input_1">
+	  <input name="wang_name" type="text" />
+	</div>
+  </div>
+
+  <div class="reg2_line"><span><b>首页网址：</b></span>
+	<div class="reg2_input_2">
+	  <input name="url" type="text" />
+	</div>
+  </div>
+  <div class="reg2_line"><span><b>API接口：</b></span>
+	<div class="reg2_input_2">
+	  <input name="api_url" type="text" />
+
+	</div>
+  </div>
+  <div class="reg2_line"><span><b>所在城市：</b></span>
+	<select name="cityid">               
+<!--{loop $GLOBALS[city] $val}-->
+<option value="{$val[cityname]}">{$val[cityname]}</option>
+<!--{/loop}-->
+	</select>
+  </div>
+  <div class="reg2_line"><span><b>联系人：</b></span>
+	<div class="reg2_input_1">
+
+	  <input type="text" name="content_name" />
+	</div>
+	</div>
+  <div class="reg2_line"><span><b>联系方式：</b></span>
+	<select name="contact1">
+	  <option>手机</option>
+	  <option>QQ</option>
+
+	  <option>MSN</option>
+	 
+	</select>
+	<div class="reg2_input_1">
+	  <input type="text" name="contact2" />
+	</div>
+  </div>
+  <div class="reg2_line"><span><b>网站简介：</b></span>
+	<div class="reg2_input_3">
+
+	  <textarea name="info"></textarea>
+	</div>
+  </div>
+</div>
+<div class="reg2_button">
+  <input type="button" value="" class="reg2_sub"/>
+  <input type="button"  value="" class="reg2_button_1" id="reg2_button_1"/>
+</div>
+
+</div>
+<div id="logo"><a href="{SITE_ROOT}" title="{$GLOBALS[title]}{$GLOBALS[seo_title]}"><img src="{SITE_ROOT}/{$GLOBALS[setting][site_logo]}" alt="{$GLOBALS[title]}{$GLOBALS[seo_title]}"/></a></div>
+  <div class="login_top"> 您好，欢迎来到{$GLOBALS[title]}{$GLOBALS[seo_title]}</div>
+
+    <div class="login">
+      <ul class="login_top_3">
+        <li><a href="{eval echo url('user','login');}">用户登陆入口</a></li>
+        <li><a href="{eval echo url('user','register');}">用户注册入口</a></li>
+      </ul>
+      <div class="login_box">
+        
+        <input type="hidden" name="commit" value="1" />
+		 <input type="hidden" name="con" value="user" />
+		  <input type="hidden" name="act" value="register" />
+          <div class="login_box_line"><span><b>邮箱账号：</b></span>
+            <div class="login_input_1">
+              <input type="text" name="name" class="name" />
+            </div>
+          </div>
+          <div class="login_box_line"><span><b>登录密码：</b></span>
+            <div class="login_input_1">
+              <input type="password" name="pwd" class="pwd"  />
+
+            </div>
+          </div>
+          <div class="login_box_line"><span><b>确认密码：</b></span>
+            <div class="login_input_1">
+              <input type="password" name="pwd2" class="pwd2"  />
+            </div>
+          </div>
+          <div class="login_input_3">
+
+            <input class="check_reg" type="checkbox" name="check"/>
+            <span>团购网站主</span>
+            <input class="reg" type="button" value="" id="reg"/>
+          </div>
+
+        
+        <div class="hr"></div>
+        <div class="tishi"> <b>温馨提示：</b>用户账号就是您注册时的E-mail！团购网站站主请勾选“团购网站主”选项！ </div>
+      </div>
+      <div class="login_bottom_2"></div>
+    </div>
+
+    <div class="attr">
+      <p><b>团购导航第一品牌：我们共同的选择</b></p>
+      <p>团购导航第一品牌：我们共同的选择</p>
+      <p>团购导航第一品牌：我们共同的选择</p>
+    </div>
+  </form>
+  <div class="footer">
+  <p><b><a target="_blank" href="{eval echo url('index','siteadd');}">网站提交</a> | <a target="_blank" href="{eval echo url('index','guestbook');}">意见反馈</a> |<a target="_blank" href="{eval echo url('index','apiinfo');}">API征集</a> | <!--{if $GLOBALS[setting][site_tel]}-->服务电话：$GLOBALS[setting][site_tel]<!--{/if}--></b> <!--{if $GLOBALS[setting][site_worktime]}-->($GLOBALS[setting][site_worktime])<!--{/if}--></p>
+  <p><!--{if $GLOBALS[setting][site_qqq]}-->团购交流QQ群：$GLOBALS[setting][site_qqq]<!--{/if}--> <!--{if $GLOBALS[setting][site_qq]}-->客服QQ：$GLOBALS[setting][site_qq]<!--{/if}--> <!--{if $GLOBALS[setting][site_email]}-->E-mail：<a href="mailto:{$GLOBALS[setting][site_email]}">$GLOBALS[setting][site_email]</a><!--{/if}--> <!--{if $GLOBALS[setting][site_address]}-->地址：$GLOBALS[setting][site_address]<!--{/if}--></p>
+  <p>{$GLOBALS[setting][site_copyright]} <!--{if $GLOBALS[setting][site_benai]}-->$GLOBALS[setting][site_benai]<!--{/if}-->$GLOBALS[setting][site_tongji]
+</p>
+  </div>
+</div>
+</body>
+
+</html>
